@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Universal File Converter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Universal File Converter</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alert alert-warning">
+          {{ messages[0] }}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <div class="row">
+        <div class="col-md-6">
+            <form action="/convert_pdf_to_word" method="post" enctype="multipart/form-data" class="border p-3 bg-white shadow-sm">
+                <h5>📄 Convert PDF to Word</h5>
+                <input type="file" name="pdf_file" accept=".pdf" class="form-control mb-2" required>
+                <button type="submit" class="btn btn-primary">Convert to DOCX</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form action="/convert_jpg_to_pdf" method="post" enctype="multipart/form-data" class="border p-3 bg-white shadow-sm">
+                <h5>🖼️ Convert JPG to PDF (2 per A4 page)</h5>
+                <input type="file" name="jpg_files" accept=".jpg,.jpeg" multiple class="form-control mb-2" required>
+                <button type="submit" class="btn btn-success">Convert to PDF</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

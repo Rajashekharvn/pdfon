@@ -1,0 +1,5 @@
+flask
+pdf2docx
+PyMuPDF
+Pillow
+gunicorn
